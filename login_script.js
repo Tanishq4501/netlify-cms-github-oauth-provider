@@ -1,7 +1,9 @@
 const REQUIRED_ORIGIN_PATTERN = 
   /^((\*|([\w_-]{2,}))\.)*(([\w_-]{2,})\.)+(\w{2,})(\,((\*|([\w_-]{2,}))\.)*(([\w_-]{2,})\.)+(\w{2,}))*$/
 
-if (!process.env.ORIGINS.match(REQUIRED_ORIGIN_PATTERN)) {
+const ORIGINS = process.env.ORIGINS || "https://staging.virtuebytech.com";
+
+if (!ORIGINS.match(REQUIRED_ORIGIN_PATTERN)) {
   throw new Error('process.env.ORIGINS MUST be comma separated list \
     of origins that login can succeed on.')
 }
