@@ -7,7 +7,7 @@ if (!ORIGINS.match(REQUIRED_ORIGIN_PATTERN)) {
   throw new Error('process.env.ORIGINS MUST be comma separated list \
     of origins that login can succeed on.')
 }
-const origins = process.env.ORIGINS.split(',')
+const origins = ORIGINS
 
 
 module.exports = (oauthProvider, message, content) => `
